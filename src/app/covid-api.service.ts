@@ -8,19 +8,16 @@ import { CovidData } from '../app/model/covid-data';
 })
 export class CovidApiService {
   // base url to make api calls
-  private baseURL = 'http://covidtracking.com/api/';
+  private baseURL = 'https://api.covidtracking.com/v1/';
   // hold covid data after api call
+
   private covidData = [];
   // helps send data to subscribers
-  dataSubject = new Subject<void>();
+  dataChanged = new Subject<void>();
+  http: HttpClient;
 
-  constructor(private http: HttpClient) {
+  constructor(http: HttpClient) {
     this.http = http;
-  }
-
-  getData(): any{
-    console.log('getData' + this.covidData);
-    return this.covidData;
   }
 
   fetchCovidData(dataOption: string): any{
@@ -28,11 +25,10 @@ export class CovidApiService {
 
     this.http.get<any>(apiString).subscribe(
       (data: any) => {
-        console.log('test ' + JSON.stringify(data[0]));
-        this.covidData = data[0];
-        this.dataSubject.next();
-        /*
-        const extractedData = data.map((x: any) => {
+
+        const extractedData = data;
+        // map data to something manageable
+        const stats = extractedData.map((x: any) => {
           return {
             date: x.date,
             positive: x.positive,
@@ -40,8 +36,18 @@ export class CovidApiService {
             hospitalizedCurrently: x.hospitalizedCurrently
           };
         });
-        */
-      });
-    console.log('from service ' + JSON.stringify(this.covidData));
+
+        this.covidData = stats;
+        console.log('test ' + JSON.stringify(stats));
+        // emit data for components to subscribe to
+        this.dataChanged.next();
+
+    });
   }
+
+  getData(): any{
+    console.log('getData' + this.covidData);
+    return this.covidData;
+  }
+
 }

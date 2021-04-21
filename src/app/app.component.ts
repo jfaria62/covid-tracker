@@ -9,15 +9,16 @@ import { Subscription } from 'rxjs';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
-  title = 'covid-tracker';
+  title = 'National Covid-19 Tracker';
   covidData = [];
   selectedDate = '20210101';
   // set ma to default state
   selectedState = 'ma';
 
   // set strings for api calls
-  private current = 'us';
+  private current = 'us/current.json';
   private stateData = 'states';
 
   private date = 'us/' + this.selectedDate + '.json';
@@ -36,13 +37,12 @@ export class AppComponent {
   ngOnInit() {
     this.covidService.fetchCovidData(this.current);
 
-    this.subscription = this.covidService.dataSubject.subscribe(() => {
+    this.subscription = this.covidService.dataChanged.subscribe(
+      () => {
         this.covidData = this.covidService.getData();
+        console.log('component here: ', this.covidData);
       }
     );
-
-    console.log(this.covidData);
-
   }
 
 }
