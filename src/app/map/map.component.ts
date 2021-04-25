@@ -10,7 +10,7 @@ export class MapComponent implements OnInit {
 
   // all state Data
   stateData = [];
-  displayData = [];
+  displayData: any;
   category: any;
 
   covidService: CovidApiService;
@@ -36,9 +36,14 @@ export class MapComponent implements OnInit {
     this.subscription = this.covidService.categoryChanged.subscribe(
       () => {
         this.category = this.covidService.getCategory();
-        console.log(this.stateData[0][this.category] );
-        console.log('MAP...category: ', this.category);
-        //console.log('category DATA: ', JSON.stringify(extractedData));
+        const extractedStats = this.stateData.map((x: any) => {
+          return {
+            id: x.state,
+            value: x[this.category]
+          };
+        });
+        this.displayData = extractedStats;
+        console.log("display data" + JSON.stringify(this.displayData) );
 
       }
     );
