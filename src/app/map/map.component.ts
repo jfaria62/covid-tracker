@@ -37,13 +37,14 @@ export class MapComponent implements OnInit {
       () => {
         this.category = this.covidService.getCategory();
         const extractedStats = this.stateData.map((x: any) => {
+          console.log("cat: " + this.category + " \ndata: "+ JSON.stringify(x));
           return {
             id: x.state,
             value: x[this.category]
           };
         });
-        this.displayData = extractedStats;
-        console.log("display data" + JSON.stringify(this.displayData) );
+        this.displayData = JSON.stringify(extractedStats);
+        console.log("display data" + this.displayData );
 
       }
     );

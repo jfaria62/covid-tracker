@@ -69,6 +69,7 @@ export class CovidApiService {
             state: x.state,
             positive: x.positive,
             hospitalizedCurrently: x.hospitalizedCurrently,
+            onVentilatorCurrently: x.onVentilatorCurrently,
             death: x.death,
             positiveIncrease: x.positiveIncrease
             /*other data available:
