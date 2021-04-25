@@ -67,11 +67,11 @@ export class CovidApiService {
           return {
             date: x.date,
             state: x.state,
-            positive: x.positive,
-            hospitalizedCurrently: x.hospitalizedCurrently,
-            onVentilatorCurrently: x.onVentilatorCurrently,
-            death: x.death,
-            positiveIncrease: x.positiveIncrease
+            positive: JSON.stringify(x.positive),
+            hospitalizedCurrently: JSON.stringify(x.hospitalizedCurrently),
+            onVentilatorCurrently: JSON.stringify(x.onVentilatorCurrently),
+            death: JSON.stringify(x.death),
+            positiveIncrease: JSON.stringify(x.positiveIncrease)
             /*other data available:
               negative,
               inIcuCurrently,
@@ -83,7 +83,7 @@ export class CovidApiService {
         });
 
         this.stateData = stats;
-        // console.log(stats);
+        console.log(stats);
         // emit data for components to subscribe/listen to
         this.stateChanged.next();
 

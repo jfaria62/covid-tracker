@@ -19,66 +19,154 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <script type="text/javascript">
 		FusionCharts.ready(function(){
-			var chartObj = new FusionCharts({
-    type: 'maps/usa',
-    renderAt: 'chart-container',
-    width: '1000',
-    height: '700',
-    dataFormat: 'json',
-    dataSource: {
-        "chart": {
+      console.log($("#mapData").val());
+      let rawData = $("#mapData").val();
+      let parseData = JSON.parse(rawData);
+      let AK = parseData[0];//.substring(1, rawData.length-1);
+      let AL = parseData[1];
+      let AR = parseData[2];
+      let AZ = parseData[4];
+      let CA = parseData[5];
+      let CO = parseData[6];
+      let CT = parseData[7];
+      let DE = parseData[9];
+      let DC = parseData[8];
+      let FL = parseData[10];
+      let GA = parseData[11];
+      let HI = parseData[13];
+      let ID = parseData[15];
+      let IL = parseData[16];
+      let IN = parseData[17];
+      let IA = parseData[14];
+      let KS = parseData[18];
+      let KY = parseData[19];
+      let LA = parseData[20];
+      let ME = parseData[23];
+      let MD = parseData[22];
+      let MA = parseData[21];
+      let MI = parseData[24];
+      let MN = parseData[25];
+      let MS = parseData[28];
+      let MO = parseData[26];
+      let MT = parseData[29];
+      let NE = parseData[32];
+      let NV = parseData[36];
+      let NH = parseData[33];
+      let NJ = parseData[34];
+      let NM = parseData[35];
+      let NY = parseData[37];
+      let NC = parseData[30];
+      let ND = parseData[31];
+      let OH = parseData[38];
+      let OK = parseData[39];
+      let OR = parseData[40];
+      let PA = parseData[41];
+      let RI = parseData[43];
+      let SC = parseData[44];
+      let SD = parseData[45];
+      let TN = parseData[46];
+      let TX = parseData[47];
+      let UT = parseData[48];
+      let VT = parseData[51];
+      let VA = parseData[49];
+      let WA = parseData[52];
+      let WV = parseData[54];
+      let WI = parseData[53];
+      let WY = parseData[55];
+      console.log("data " + JSON.stringify(WA));
+			let chartObj = new FusionCharts({
+        type: 'maps/usa',
+        renderAt: 'chart-container',
+        width: '1000',
+        height: '700',
+        dataFormat: 'json',
+        dataSource: {
+          "chart": {
             "caption": "",
             "theme": "fusion",
             "formatNumberScale": "0",
             "numberSuffix": ""
-        },
-        "colorrange": {
+          },
+          "colorrange": {
             "color": [{
-                "minvalue": "0",
-                "maxvalue": "100",
-                "code": "#D0DFA3",
-                "displayValue": "< 100"
+              "minvalue": "0",
+              "maxvalue": "100",
+              "code": "#D0DFA3",
+              "displayValue": "< 100"
             }, {
-                "minvalue": "100",
-                "maxvalue": "500",
-                "code": "#B0BF92",
-                "displayValue": "100-500"
+              "minvalue": "100",
+              "maxvalue": "500",
+              "code": "#B0BF92",
+              "displayValue": "100-500"
             }, {
-                "minvalue": "500",
-                "maxvalue": "1000",
-                "code": "#91AF64",
-                "displayValue": "500-1000"
+              "minvalue": "500",
+              "maxvalue": "1000",
+              "code": "#91AF64",
+              "displayValue": "500-1000"
             }, {
-                "minvalue": "1000",
-                "maxvalue": "5000",
-                "code": "#A9FF8D",
-                "displayValue": "> 1000"
+              "minvalue": "1000",
+              "maxvalue": "10000000",
+              "code": "#A9FF8D",
+              "displayValue": "> 1000"
             }]
-        },
-        "data": [{
-            "id": "MA",
-            "value": "599"
-        }, {
-            "id": "CA",
-            "value": "373"
-        }, {
-            "id": "TX",
-            "value": "3875"
-        }, {
-            "id": "FL",
-            "value": "727"
-        }, {
-            "id": "TN",
-            "value": "885"
-        }, {
-            "id": "MI",
-            "value": "32"
-        }]
-    }
-}
-);
-			chartObj.render();
-		});
+          },
+          "data": [
+            AK,
+            AL,
+            AR,
+            AZ,
+            CA,
+            CO,
+            CT,
+            DE,
+            DC,
+            FL,
+            GA,
+            HI,
+            ID,
+            IL,
+            IN,
+            IA,
+            KS,
+            KY,
+            LA,
+            ME,
+            MD,
+            MA,
+            MI,
+            MN,
+            MS,
+            MO,
+            MT,
+            NE,
+            NV,
+            NH,
+            NJ,
+            NM,
+            NY,
+            NC,
+            ND,
+            OH,
+            OK,
+            OR,
+            PA,
+            RI,
+            SC,
+            SD,
+            TN,
+            TX,
+            UT,
+            VT,
+            VA,
+            WA,
+            WV,
+            WI,
+            WY
+          ]
+        }
+      });
+    chartObj.render();
+	});
 	</script>
 </head>
 <body>

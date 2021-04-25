@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { CovidApiService } from '../covid-api.service';
 
 @Component({
@@ -10,7 +10,7 @@ export class MapComponent implements OnInit {
 
   // all state Data
   stateData = [];
-  displayData: any;
+  @Output() displayData: any;
   category: any;
 
   covidService: CovidApiService;
@@ -27,7 +27,7 @@ export class MapComponent implements OnInit {
     this.subscription = this.covidService.stateChanged.subscribe(
       () => {
         this.stateData = this.covidService.getStateData();
-        console.log('map Data: ', this.stateData[0]);
+        // console.log('map Data: ', this.stateData[0]);
 
       }
     );
@@ -37,14 +37,14 @@ export class MapComponent implements OnInit {
       () => {
         this.category = this.covidService.getCategory();
         const extractedStats = this.stateData.map((x: any) => {
-          console.log("cat: " + this.category + " \ndata: "+ JSON.stringify(x));
+          // console.log("cat: " + this.category + " \ndata: "+ JSON.stringify(x));
           return {
             id: x.state,
             value: x[this.category]
           };
         });
         this.displayData = JSON.stringify(extractedStats);
-        console.log("display data" + this.displayData );
+        // console.log("display data" + this.displayData );
 
       }
     );
