@@ -22,56 +22,56 @@
 			var chartObj = new FusionCharts({
     type: 'maps/usa',
     renderAt: 'chart-container',
-    width: '600',
-    height: '400',
+    width: '1000',
+    height: '700',
     dataFormat: 'json',
     dataSource: {
         "chart": {
-            "caption": "Global Population",
+            "caption": "",
             "theme": "fusion",
             "formatNumberScale": "0",
-            "numberSuffix": "M"
+            "numberSuffix": ""
         },
         "colorrange": {
             "color": [{
                 "minvalue": "0",
                 "maxvalue": "100",
                 "code": "#D0DFA3",
-                "displayValue": "< 100M"
+                "displayValue": "< 100"
             }, {
                 "minvalue": "100",
                 "maxvalue": "500",
                 "code": "#B0BF92",
-                "displayValue": "100-500M"
+                "displayValue": "100-500"
             }, {
                 "minvalue": "500",
                 "maxvalue": "1000",
                 "code": "#91AF64",
-                "displayValue": "500M-1B"
+                "displayValue": "500-1000"
             }, {
                 "minvalue": "1000",
                 "maxvalue": "5000",
                 "code": "#A9FF8D",
-                "displayValue": "> 1B"
+                "displayValue": "> 1000"
             }]
         },
         "data": [{
-            "id": "NA",
-            "value": "515"
+            "id": "MA",
+            "value": "599"
         }, {
-            "id": "SA",
+            "id": "CA",
             "value": "373"
         }, {
-            "id": "AS",
+            "id": "TX",
             "value": "3875"
         }, {
-            "id": "EU",
+            "id": "FL",
             "value": "727"
         }, {
-            "id": "AF",
+            "id": "TN",
             "value": "885"
         }, {
-            "id": "AU",
+            "id": "MI",
             "value": "32"
         }]
     }
