@@ -8,19 +8,19 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav">
               <li class="nav-link" role="presentation " >
-                  <a (click)="changeCategory('positive')">Positive Cases </a>
+                  <a onclick="setMaps()" (click)="changeCategory('positive')">Positive Cases </a>
               </li>
               <li class="nav-link" role="presentation ">
-                  <a (click)="changeCategory('hospitalizedCurrently')">Hospitalizations</a>
+                  <a onclick="setMaps()" (click)="changeCategory('hospitalizedCurrently')">Hospitalizations</a>
               </li>
               <li class="nav-link" role="presentation " routerLinkActive="active" >
-                <a (click)="changeCategory('death')">Deaths</a>
+                <a onclick="setMaps()" (click)="changeCategory('death')">Deaths</a>
               </li>
               <li class="nav-link" role="presentation " routerLinkActive="active" >
-                <a (click)="changeCategory('onVentilatorCurrently')">Currently On Ventilator</a>
+                <a onclick="setMaps()" (click)="changeCategory('onVentilatorCurrently')">Currently On Ventilator</a>
               </li>
               <li class="nav-link" role="presentation " routerLinkActive="active" >
-                <a (click)="changeCategory('positiveIncrease')">Increases</a>
+                <a onclick="setMaps()" (click)="changeCategory('positiveIncrease')">Increases</a>
               </li>
               <!--
               <li class="nav-item dropdown">

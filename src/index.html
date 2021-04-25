@@ -18,6 +18,10 @@
   <!--Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <script type="text/javascript">
+    setMaps();
+    function setMaps(){
+
+
 		FusionCharts.ready(function(){
       console.log($("#mapData").val());
       let rawData = $("#mapData").val();
@@ -167,6 +171,7 @@
       });
     chartObj.render();
 	});
+}
 	</script>
 </head>
 <body>
